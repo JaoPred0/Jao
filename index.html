@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary container-fluid">
-            <div class="container-fluid navbar-border">
+            <div class="container-fluid navbar-border" style="border-bottom: solid #000 2px;">
                 <a class="navbar-brand" href="index.html">
                     <img src="assets/img/favicon.ico" alt="logotipo" class="img-fluid img-thumbnail rounded w-25">
                 </a>
@@ -27,24 +27,26 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#developer">Developer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#menu">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#musicas">Músicas</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Dropdown link
+                                Configuração
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Sobre Mim</a></li>
+                                <li><a class="dropdown-item" href="#">Dados</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -102,7 +104,7 @@
                             <a class="nav-link text-success" href="assets/page/calendario/ifms.html">IFMS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-success"" href="assets/page/calendario/enem.html">Enem</a>
+                            <a class="nav-link text-success"" href=" assets/page/calendario/enem.html">Enem</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="assets/page/calendario/dia-a-dia.html">Dia-a-Dia</a>
@@ -125,10 +127,181 @@
         </section>
 
 
-        <section class="w-75 mt-5">
+        <section class="w-75 mt-5" id="developer">
             <div class="titulo">
                 <h2>Developer</h2>
                 <hr>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card">
+                        <img src="./assets/img/capa/ifmsCapa.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-success">IFMS</h5>
+                            <p class="card-text">Todos os projetos do IFMS, como Front-End, Linguagem Computacional
+                                (LC), Design Web, entre outros, são armazenados.</p>
+                            <a href="" class="btn btn-success">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="./assets/img/capa/javascriptCapa.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">Javascript</h5>
+                            <p class="card-text">Curso de JavaScript: nesta aba, você encontrará bibliotecas, tutoriais
+                                novos, truques, projetos, modelos e muito mais.</p>
+                            <a href="" class="btn btn-warning">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="./assets/img/capa/front-endCapa.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Front-End</h5>
+                            <p class="card-text">Front-End completo: esta seção inclui HTML, CSS, JavaScript, frameworks
+                                como React e Angular, templates prontos, e tutoriais detalhados para cada tecnologia.
+                            </p>
+                            <a href="" class="btn btn-primary">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="./assets/img/capa/outra-linguagensCapa.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">Outras Linguagens</h5>
+                            <p class="card-text">Outras linguagens para aprender e usar: Python, C++, Lua, Java, C#,
+                                .NET, jQuery, entre outras. Inclui templates e exemplos de projetos variados.</p>
+                            <a href="" class="btn btn-danger">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-75 mt-5" id="menu">
+            <div class="titulo">
+                <h2>Menu de Novas Ações</h2>
+                <hr>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Ideia no Site
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>Grupo do WhatsApp para adicionar e discutir novas ideias para o site.</p>
+                            <div class="list-group">
+                                <button type="button" class="list-group-item list-group-item-action active"
+                                    aria-current="true">
+                                    Menu
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action">Developer</button>
+                                <button type="button"
+                                    class="list-group-item list-group-item-action">Calendârios</button>
+                                <button type="button" class="list-group-item list-group-item-action">Hórarios</button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    disabled>Cursos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            none
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">none</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            none
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">none</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-75 mt-5" id="musicas">
+            <div class="titulo">
+                <h2>Músicas</h2>
+                <hr>
+            </div>
+            <div class="card ">
+                <h5 class="card-header">Página MJ</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Págna de Música Geral</h5>
+                    <p class="card-text">Todas as músicas, playlists e audiobooks completos estão disponíveis aqui.
+                        Encontre tudo o que você precisa para uma experiência musical e literária completa.</p>
+                    <a href="#" class="btn btn-dark">Acessar</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">Gym & 0</h5>
+                            <p class="card-text">Músicas motivacionais: uma seleção de faixas inspiradoras para aumentar
+                                sua energia, foco e determinação. Perfeitas para treinos, estudo ou momentos que você
+                                precisa de um impulso extra.
+                            </p>
+                            <a href="#" class="btn btn-danger">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Christ</h5>
+                            <p class="card-text">Músicas de Christ: uma seleção envolvente que combina batidas intensas
+                                com a mensagem e espiritualidade de Christ, criando uma experiência sonora única e
+                                inspiradora.
+                            </p>
+                            <a href="#" class="btn btn-primary">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">SlideShow</h5>
+                            <p class="card-text">Músicas muito tristes e intensas, perfeitas para refletir profundamente
+                                e transformar essa intensidade em um treino para fortalecer os sentimentos e superar
+                                fraquezas.
+                            </p>
+                            <a href="#" class="btn btn-warning">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">2:17</h5>
+                            <p class="card-text">Sim <br> Sim <br> Sim
+                            </p>
+                            <a href="#" class="btn btn-dark">Acessar</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
