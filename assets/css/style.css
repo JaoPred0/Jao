@@ -3,3 +3,6 @@ sass -w assets\sass\style.scss:assets\css/style.css
 */
 
 /*# sourceMappingURL=style.css.map */
+.navbar{
+    background-color: #1f1f1f;
+}
