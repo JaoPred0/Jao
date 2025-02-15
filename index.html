@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jao</title>
+
+    <!-- Estilo -->
+    <link rel="stylesheet" href="assets/css/home.css">
+    <!-- Cdn -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- NavBar -->
+    <script type="module" src="assets/js/navbar.js"></script>
+</head>
+
+<body>
+    <!-- Modal de Confirmação -->
+    <div class="modal fade" id="modalSucesso" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"> <!-- Adicionado modal-dialog-centered -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sucesso!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Anotação salva com sucesso!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-center mt-5">
+        <h1 class="animate__animated animate__fadeInDown">Bem-vindo de volta, João Pedro!</h1>
+        <input type="text" id="inputNota" class="form-control w-75 mx-auto mt-3"
+            placeholder="Algo importante a anotar?">
+        <button id="btnSalvar" class="btn w-75 btn-success animate__animated">Salvar</button>
+    </div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper p-2">
+            <div class="swiper-slide" onclick="document.location.href = 'ifms.html'">
+                <img src="assets/img/capaIFMS.png" alt="Capa IFMS" class="img-thumbnail animated-img">
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Scripts -->
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

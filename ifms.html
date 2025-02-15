@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jao</title>
+
+    <!-- Estilo -->
+    <link rel="stylesheet" href="assets/css/home.css">
+    <!-- Cdn -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- NavBar -->
+    <script type="module" src="assets/js/navbar.js"></script>
+    <style>
+        .a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            text-align: center;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .btn-back {
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-back:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-icon {
+            font-size: 5rem;
+            color: #dc3545;
+            animation: bounceIn 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container a">
+        <i class="fas fa-exclamation-triangle error-icon animate__animated animate__tada"></i>
+        <h1 class="mt-3 animate__animated animate__fadeInDown">Ops! Página Indisponível 😢</h1>
+        <p class="animate__animated animate__fadeInUp">Estou trabalhando para resolver isso o mais rápido possível.
+        </p>
+        <button class="btn btn-primary btn-back animate__animated animate__pulse animate__infinite"
+            onclick="voltarInicio()">
+            Voltar para o Início
+        </button>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script>
+        function voltarInicio() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>

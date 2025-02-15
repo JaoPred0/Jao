@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Anotações</title>
+
+    <!-- Estilo -->
+    <link rel="stylesheet" href="assets/css/anotacoes.css">
+    <!-- Cdn -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- NavBar -->
+    <script type="module" src="assets/js/navbar.js"></script>
+</head>
+
+<body>
+
+    <div class="container mt-4 animate__animated animate__fadeIn">
+        <h1 class="text-center animate__animated animate__bounceIn">📝 Minhas Anotações</h1>
+        <div id="listaAnotacoes" class="mt-4"></div>
+    </div>
+
+    <!-- Configurações -->
+    <div class="config-container">
+        <div id="configIcons" class="config-icons">
+            <button class="btn btn-primary btn-md animate__animated animate__fadeInUp" onclick="baixarJSON()">
+                <i class="fas fa-download"></i>
+            </button>
+            <label class="btn btn-secondary btn-md animate__animated animate__fadeInUp">
+                <i class="fas fa-folder-open"></i>
+                <input type="file" id="inputBackup" class="d-none" onchange="carregarBackup()">
+            </label>
+        </div>
+        <button class="btn btn-dark btn-config animate__animated" onclick="toggleConfig()">
+            <i class="fas fa-cog"></i>
+        </button>
+    </div>
+
+    <!-- Caixa de entrada fixa -->
+    <div class="input-container">
+        <div class="input-group">
+            <input type="text" id="inputNota" class="form-control" placeholder="Escreva uma anotação...">
+            <button id="btnSalvar" class="btn btn-success animate__animated animate__bounceIn" onclick="salvarNota()">
+                <i class="fas fa-check"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/anotacoes.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
