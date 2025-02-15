@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li class="nav-item">
                         <a class="nav-link" href="anotacoes.html">Anotações</a>
                     </li>
-
-
                     <li class="nav-item">
                         <a class="nav-link" href="configuracoes.html">Configurações</a>
                     </li>

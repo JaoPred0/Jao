@@ -7,64 +7,189 @@
     <title>Jao</title>
 
     <!-- Estilo -->
-    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/ifms.css">
     <!-- Cdn -->
     <link rel="stylesheet" href="assets/css/index.css">
     <!-- NavBar -->
     <script type="module" src="assets/js/navbar.js"></script>
-    <style>
-        .a {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 60vh;
-            text-align: center;
-            transition: background-color 0.5s ease;
-        }
-
-        .container {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .btn-back {
-            margin-top: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .btn-back:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .error-icon {
-            font-size: 5rem;
-            color: #dc3545;
-            animation: bounceIn 1s ease-in-out;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container a">
-        <i class="fas fa-exclamation-triangle error-icon animate__animated animate__tada"></i>
-        <h1 class="mt-3 animate__animated animate__fadeInDown">Ops! Página Indisponível 😢</h1>
-        <p class="animate__animated animate__fadeInUp">Estou trabalhando para resolver isso o mais rápido possível.
-        </p>
-        <button class="btn btn-primary btn-back animate__animated animate__pulse animate__infinite"
-            onclick="voltarInicio()">
-            Voltar para o Início
-        </button>
+    <div class="container mt-4">
+        <h2 class="text-center animate__animated animate__fadeInDown">📚 Agenda de Estudos</h2>
+
+        <div class="table-responsive" data-aos="zoom-in">
+            <table class="table table-bordered text-center table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                        <th>Sábado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-aos="fade-up" data-aos-delay="100">📖 Matemática</td>
+                        <td data-aos="fade-up" data-aos-delay="200">📜 História</td>
+                        <td data-aos="fade-up" data-aos-delay="300">🔬 Física</td>
+                        <td data-aos="fade-up" data-aos-delay="400">🧪 Química</td>
+                        <td data-aos="fade-up" data-aos-delay="500">📝 Português</td>
+                        <td data-aos="fade-up" data-aos-delay="600">🔄 Revisão</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="container container-btn mt-4" data-aos="fade-up">
+            <!-- Botões principais -->
+            <button class="btn btn-primary mb-1 animate__animated animate__bounceIn btn-ifms" data-bs-toggle="modal"
+                data-bs-target="#addExamModal">
+                <i class="fas fa-plus"></i> Adicionar Prova
+            </button>
+            <button class="btn btn-danger mb-1 animate__animated animate__bounceIn btn-ifms"
+                onclick="confirmDeleteSelected()">
+                <i class="fas fa-trash"></i> Apagar Selecionados
+            </button>
+            <button class="btn btn-primary animate__animated animate__bounceIn btn-ifms" onclick="downloadBackup()">
+                <i class="fas fa-download"></i> Baixar Backup
+            </button>
+            <input type="file" id="backupFile" accept=".json" onchange="uploadBackup(event)"
+                class="form-control mt-2 animate__animated animate__fadeIn">
+
+            <!-- Lista de provas -->
+            <ul id="examList" class="list-group mt-3 animate__animated animate__fadeInUp"></ul>
+        </div>
+
+
+        <!-- Modal Adicionar Prova -->
+        <div class="modal fade" id="addExamModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Adicionar Prova</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="examForm">
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Matéria</label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="" selected disabled>Selecione a matéria</option>
+                                    <option value="Matemática">Matemática</option>
+                                    <option value="Português">Português</option>
+                                    <option value="História">História</option>
+                                    <option value="Geografia">Geografia</option>
+                                    <option value="Ciências">Ciências</option>
+                                    <option value="Inglês">Inglês</option>
+                                    <option value="Física">Física</option>
+                                    <option value="Química">Química</option>
+                                    <option value="Biologia">Biologia</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="important">
+                                <label class="form-check-label" for="important">Importante</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Conteúdo</label>
+                                <textarea class="form-control" id="content" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Ver Prova -->
+        <div class="modal fade" id="viewExamModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalhes da Prova</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="examContent"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Confirmar Exclusão -->
+        <div class="modal fade" id="deleteExamModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmar Exclusão</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tem certeza que deseja apagar esta prova?</p>
+                        <button id="confirmDeleteBtn" class="btn btn-danger">Apagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Confirmar Exclusão de Selecionados -->
+        <div class="modal fade" id="deleteSelectedModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmar Exclusão</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tem certeza que deseja apagar as provas selecionadas?</p>
+                        <button id="confirmDeleteSelectedBtn" class="btn btn-danger">Apagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Sucesso -->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sucesso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="successMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Erro -->
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Erro</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="errorMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- Scripts -->
     <script src="assets/js/index.js"></script>
-    <script src="assets/js/home.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script>
-        function voltarInicio() {
-            window.location.href = "index.html";
-        }
-    </script>
+    <script src="assets/js/ifms.js"></script>
 </body>
 
 </html>

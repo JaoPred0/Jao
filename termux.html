@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jao</title>
+
+    <!-- Estilo -->
+    <!-- <link rel="stylesheet" href="assets/css/.css"> -->
+    <!-- Cdn -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- NavBar -->
+    <script type="module" src="assets/js/navbar.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Códigos Prontos</a>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container mt-4">
+
+        <!-- Campo de pesquisa -->
+        <div class="mb-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar código...">
+        </div>
+
+        <div class="row" id="cardsContainer">
+            <!-- Exemplo de Card 1 -->
+            <div class="col-md-4 mb-3 card-item">
+                <div class="card text-center">
+                    <div class="card-header bg-primary text-white">Instalação do Git</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Comando para instalar Git no Termux</h5>
+                        <pre class=" p-2">pkg install git</pre>
+                        <button class="btn btn-success copy-btn" data-code="pkg install git">Copiar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplo de Card 2 -->
+            <div class="col-md-4 mb-3 card-item">
+                <div class="card text-center">
+                    <div class="card-header bg-secondary text-white">Atualizar Pacotes</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Atualizar pacotes no Termux</h5>
+                        <pre class=" p-2">pkg update && pkg upgrade</pre>
+                        <button class="btn btn-success copy-btn" data-code="pkg update && pkg upgrade">Copiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script>
+        // Função de busca
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            let searchValue = this.value.toLowerCase();
+            let cards = document.querySelectorAll('.card-item');
+
+            cards.forEach(card => {
+                let title = card.querySelector('.card-title').textContent.toLowerCase();
+                card.style.display = title.includes(searchValue) ? 'block' : 'none';
+            });
+        });
+
+        // Função para copiar código ao clicar no botão
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                let code = this.getAttribute('data-code');
+                navigator.clipboard.writeText(code);
+                alert('Código copiado: ' + code);
+            });
+        });
+    </script>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/home.js"></script>
+</body>
+
+</html>
